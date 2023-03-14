@@ -17,7 +17,7 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      idteam2: {
+      idTeam2: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'teams', key: 'id' },

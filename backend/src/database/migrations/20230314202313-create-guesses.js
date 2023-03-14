@@ -32,12 +32,10 @@ module.exports = {
       },
       victoriesTeam1: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         defaultValue: 0
       },
       victoriesTeam2: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         defaultValue: 0
       },
     });
