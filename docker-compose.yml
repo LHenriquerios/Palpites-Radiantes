@@ -19,7 +19,7 @@ services:
     container_name: backend-docker
     restart: always
     volumes:
-      - ./backend:/usr/src/app
+      - ./backend:/app
     links:
       - db
 
