@@ -10,7 +10,11 @@ const createTeam = async (name) => {
   return Team.create({ name });
 };
 
-const getAllTeams = async () => await Team.findAll();
+const getAllTeams = async () => {
+  console.log(Team);
+  const teams = await Team.findAll();
+  return teams;
+};
 
 const getTeamById = async (id) => await Team.findByPk(id);
 
