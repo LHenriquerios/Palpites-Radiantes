@@ -17,7 +17,7 @@ module.exports = {
         points: 20,
       },
       {
-        name: 'Draft5',
+        username: 'Draft5',
         email: 'draft5@example.com',
         password: '123456',
         points: 5,
