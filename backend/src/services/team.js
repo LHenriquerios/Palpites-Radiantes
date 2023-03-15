@@ -1,5 +1,5 @@
 const { StatusCodes } = require('http-status-codes');
-const { Team } = require('../databese/models');
+const { Team } = require('../database/models');
 
 const createTeam = async (name) => {
   const team = await Team.findOne({ where: { name } });
