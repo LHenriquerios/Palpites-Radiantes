@@ -8,13 +8,16 @@ module.exports = (sequelize, DataTypes ) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+  }, {
+    timestamps: false,
+    tableName:'guesses'
   });
-
+  
   Guess.associate = (models) => {
     Guess.belongsTo(models.User);
     Guess.belongsTo(models.Match);
   };
-
+  
   return Guess;
 };
-
+  

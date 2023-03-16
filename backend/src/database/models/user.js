@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 0,
     }
   }, {
-    timestamp: false
+    timestamps: false,
+    tableName: 'users'
   });
   
   return User;

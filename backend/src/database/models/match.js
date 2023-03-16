@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
     victoriesTeam1: DataTypes.INTEGER,
     victoriesTeam2: DataTypes.INTEGER
   }, {
-    timestamp: false
+    timestamps: false,
+    tableName:'matches'
   });
   
   Match.associate = models => {
@@ -28,4 +29,3 @@ module.exports = (sequelize, DataTypes) => {
   
   return Match;
 };
-  
