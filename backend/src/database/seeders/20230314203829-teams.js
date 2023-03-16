@@ -1,8 +1,7 @@
-/* eslint-disable no-unused-vars */
 'use strict';
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async (queryInterface, _Sequelize) => {
     return queryInterface.bulkInsert('teams', [
       {
         name: 'Sentinels',
@@ -16,7 +15,7 @@ module.exports = {
     ]);
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface, _Sequelize) => {
     return queryInterface.bulkDelete('teams', null, {});
   }
 };
