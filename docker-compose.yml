@@ -1,33 +1,38 @@
-version: '3'
+version: "3"
 
 services:
-  frontend:
-    build: ./frontend
-    ports:
-      - "3000:3000"
-    container_name: frontend-docker
-    restart: always
-    volumes:
-      - ./frontend:/app
-    links:
-      - backend
-
-  backend:
+  api:
     build: ./backend
-    ports:
-      - 3001:3001
-    container_name: backend-docker
-    restart: always
     volumes:
       - ./backend:/app
-    links:
+    container_name: palpites_radiantes_api
+    tty: true
+    stdin_open: true
+    depends_on:
       - db
-
-  db:
-    image: mysql:8.0.21
     ports:
-    - 3306:3306
-    container_name: database-docker
+      - 3001:3001
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_HOST: db
+  frontend:
+    build: ./frontend
+    container_name: 'palpites_radiantes_frontend'
+    ports:
+      - 3000:3000
+    command: npm start
+  db:
+    container_name: palpites_radiantes_db
+    image: mysql:8.0.21
+    platform: linux/x86_64
     restart: always
+    ports:
+      - 3306:3306
+      - 33060:33060
     environment:
       MYSQL_ROOT_PASSWORD: password
+
+networks:
+  default:
+    name: palpites_radiantes_net 
