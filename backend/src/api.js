@@ -9,7 +9,7 @@ app.use(routes);
 app.use(errorMiddleware);
 
 app.get('/', (_req, res) => {
-  res.send('Helo World!');
+  res.send('Hello World!');
 });
 
 // É importante exportar a constante `app`,

@@ -1,5 +1,5 @@
 const express = require('express');
-const teamRouter = require('./teamRoute');
+const teamRouter = require('./teamRouter');
 const userRouter = require('./userRouter');
 
 const router = express.Router();
