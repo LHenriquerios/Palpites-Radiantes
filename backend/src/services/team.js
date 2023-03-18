@@ -29,6 +29,10 @@ const updateTeam = async (id, payload) => {
 
 const deleteTeam = async (id) => {
   const team = await getById(id);
+  if (!team) {
+    const error = { status: StatusCodes.NOT_FOUND, message: 'Team does not exist' };
+    throw error;
+  }
   await team.destroy();
 };
 
