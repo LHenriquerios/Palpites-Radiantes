@@ -9,28 +9,32 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      idTeam1: {
+      team1Id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'teams', key: 'id' },
+        field: 'team1_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      idTeam2: {
+      team2Id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'teams', key: 'id' },
+        field: 'team2_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      victoriesTeam1: {
+      team1Wins: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        field: 'team1_wins',
         defaultValue: 0
       },
-      victoriesTeam2: {
+      team2Wins: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        field: 'team2_wins',
         defaultValue: 0
       }
     });

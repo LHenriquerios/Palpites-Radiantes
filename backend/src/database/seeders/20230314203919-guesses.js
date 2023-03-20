@@ -4,22 +4,22 @@ module.exports = {
   up: async (queryInterface, _Sequelize) => {
     return queryInterface.bulkInsert('guesses', [
       {
-        idUser: 1,
-        idMatch: 1,
-        victoriesTeam1: 2,
-        victoriesTeam2: 1,
+        user_id: 1,
+        match_id: 1,
+        team1_wins_guess: 2,
+        team2_wins_guess: 1,
       },
       {
-        idUser: 2,
-        idMatch: 2,
-        victoriesTeam1: 1,
-        victoriesTeam2: 2,
+        user_id: 2,
+        match_id: 2,
+        team1_wins_guess: 1,
+        team2_wins_guess: 2,
       },
       {
-        idUser: 3,
-        idMatch: 3,
-        victoriesTeam1: 2,
-        victoriesTeam2: 0,
+        user_id: 3,
+        match_id: 3,
+        team1_wins_guess: 2,
+        team2_wins_guess: 0,
       },
     ]);
   },
