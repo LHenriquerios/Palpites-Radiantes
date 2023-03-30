@@ -1,20 +1,24 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../database');
-const User = require('./User');
-const Match = require('./Match');
-
-const Guess = sequelize.define('Guess', {
-  victoriesTeam1: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  victoriesTeam2: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-});
-
-Guess.belongsTo(User);
-Guess.belongsTo(Match);
-
-module.exports = Guess;
+module.exports = (sequelize, DataTypes ) => {
+  const Guess = sequelize.define('Guess', {
+    team1Wins: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    team2Wins: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+  }, {
+    timestamps: false,
+    underscored: true,
+    tableName:'guesses'
+  });
+  
+  Guess.associate = (models) => {
+    Guess.belongsTo(models.User, { foreignKey: 'userId' });
+    Guess.belongsTo(models.Match, { foreignKey: 'matchId' });
+  };
+  
+  return Guess;
+};
+  

@@ -1,31 +1,30 @@
-/* eslint-disable no-unused-vars */
 'use strict';
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async (queryInterface, _Sequelize) => {
     return queryInterface.bulkInsert('matches', [
       {
-        idTeam1: 1,
-        idTeam2: 2,
-        victoriesTeam1: 2,
-        victoriesTeam2: 1,
+        team1_id: 1,
+        team2_id: 2,
+        team1_wins: 2,
+        team2_wins: 1,
       },
       {
-        idTeam1: 3,
-        idTeam2: 1,
-        victoriesTeam1: 1,
-        victoriesTeam2: 2,
+        team1_id: 3,
+        team2_id: 1,
+        team1_wins: 1,
+        team2_wins: 2,
       },
       {
-        idTeam1: 2,
-        idTeam2: 3,
-        victoriesTeam1: 2,
-        victoriesTeam2: 0,
+        team1_id: 2,
+        team2_id: 3,
+        team1_wins: 2,
+        team2_wins: 0,
       },
     ]);
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface, _Sequelize) => {
     return queryInterface.bulkDelete('matches', null, {});
   }
 };

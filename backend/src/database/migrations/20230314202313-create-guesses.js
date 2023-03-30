@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 'use strict';
 
 module.exports = {
@@ -10,38 +9,42 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-      idUser: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'users',
           key: 'id',
         },
+        field: 'user_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
-      idMatch: {
+      matchId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'matches',
           key: 'id',
         },
+        field: 'match_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
-      victoriesTeam1: {
+      team1WinsGuess: {
         type: Sequelize.INTEGER,
+        field: 'team1_wins_guess',
         defaultValue: 0
       },
-      victoriesTeam2: {
+      team2WinsGuess: {
         type: Sequelize.INTEGER,
+        field: 'team2_wins_guess',
         defaultValue: 0
       },
     });
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface, _Sequelize) => {
     await queryInterface.dropTable('guesses');
   },
 };

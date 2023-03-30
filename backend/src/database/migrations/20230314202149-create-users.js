@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 'use strict';
 
 module.exports = {
@@ -31,7 +30,7 @@ module.exports = {
     });
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface, _Sequelize) => {
     await queryInterface.dropTable('users');
   },
 };
