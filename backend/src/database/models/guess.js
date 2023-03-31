@@ -1,10 +1,10 @@
 module.exports = (sequelize, DataTypes ) => {
   const Guess = sequelize.define('Guess', {
-    team1Wins: {
+    team1WinsGuess: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    team2Wins: {
+    team2WinsGuess: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
