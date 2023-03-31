@@ -4,7 +4,7 @@ const matchController = require('../controllers/match');
 const matchRouter = express.Router();
 
 matchRouter.get('/', rescue(matchController.listAll));
-matchRouter.get('/:id', rescue(matchController.getById));
+matchRouter.get('/:id', rescue(matchController.findById));
 matchRouter.post('/', rescue(matchController.createMatch));
 matchRouter.put('/:id', rescue(matchController.updateMatch));
 matchRouter.delete('/:id', rescue(matchController.deleteMatch));
