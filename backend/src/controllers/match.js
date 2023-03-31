@@ -16,8 +16,20 @@ const createMatch = async (req, res) => {
   return res.status(StatusCodes.CREATED).json(match);
 };
 
+const updateMatch = async (req, res) => {
+  const match = await matchService.updateMatch(req.params.id, req.body);
+  return res.status(StatusCodes.OK).json(match);
+};
+
+const deleteMatch = async (req, res) => {
+  const match = await matchService.deleteMatch(req.params.id);
+  return res.status(StatusCodes.NO_CONTENT).json(match);
+};
+
 module.exports = {
   listAll,
   findById,
-  createMatch
+  createMatch,
+  updateMatch,
+  deleteMatch
 };

@@ -33,9 +33,28 @@ const createMatch = async (payload) => {
   return Match.create(payload);
 };
 
+const updateMatch = async (id, payload) => {
+  const [match] = await Match.update(payload, { where: { id } });
+  if (!match) {
+    const error = { status: StatusCodes.NOT_FOUND, message: 'Match not found or equal' };
+    throw error;
+  }
+  return findById(id);
+};
+
+const deleteMatch = async (id) => {
+  const match = await findById(id);
+  if (!match) {
+    const error = { status: StatusCodes.NOT_FOUND, message: 'Match not found' };
+    throw error;
+  }
+  return Match.destroy({ where: { id } });
+};
 
 module.exports = {
   listAll,
   findById,
-  createMatch
+  createMatch,
+  updateMatch,
+  deleteMatch
 };
